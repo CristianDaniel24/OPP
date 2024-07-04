@@ -14,9 +14,8 @@ public class Vehiculo {
     public String getModelo(){
         return this.modelo;
     }
-
     public void detalles(){
-        System.out.println("Los detalles del vehiculo son:");
-        System.out.println(fecha+modelo);
+            System.out.println("\nLos detalles de cada vehiculo son:");
+            System.out.println("La fecha es: "+fecha+"\nEl modelo es: "+modelo);
     }
 }
