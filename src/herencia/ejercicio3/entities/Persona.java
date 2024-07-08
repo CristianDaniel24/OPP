@@ -10,9 +10,9 @@ public class Persona {
     }
 
     public void detallesPersona() {
-        System.out.println("\nEl nombre del estudiante es:");
+        System.out.println("\nEl nombre del la persona es:");
         System.out.println(this.nombre);
-        System.out.println("La edad del estudiante es:");
+        System.out.println("La edad de la persona es:");
         System.out.println(this.edad);
         }
     }

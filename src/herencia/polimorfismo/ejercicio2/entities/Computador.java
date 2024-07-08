@@ -2,19 +2,16 @@ package herencia.polimorfismo.ejercicio2.entities;
 
 public class Computador {
     protected String marca;
-    protected int año;
+    protected int fecha;
     protected Double coste;
 
-    public Computador(String marca, int año, Double coste){
+    public Computador(String marca, int fecha, Double coste){
         this.marca = marca;
-        this.año = año;
+        this.fecha = fecha;
         this.coste = coste;
     }
     public String getMarca(){
         return marca;
-    }
-    public int getAño(){
-        return año;
     }
     public Double getCoste(){
         return coste;
@@ -26,7 +23,7 @@ public class Computador {
     public String detallesComputador(){
         return "Los detalles del computador base son:"+
                 "\nMarca: "+this.marca+
-                "\nAño: "+this.año+
+                "\nAño: "+this.fecha+
                 "\nCoste general: "+this.coste;
     }
 }

@@ -1,8 +1,9 @@
 package herencia.abstraccion.ejercicio1;
 
 import herencia.abstraccion.ejercicio1.entities.AnimalCarnivoro;
-import herencia.abstraccion.ejercicio1.entities.AnimalOmnívoro;
+import herencia.abstraccion.ejercicio1.entities.AnimalOmnivoro;
 import herencia.abstraccion.ejercicio1.entities.Planta;
+import herencia.abstraccion.ejercicio1.entities.Servivo;
 
 public class main {
     public static void main(String[] args){
@@ -14,8 +15,9 @@ public class main {
         animalCarnivoro.comer();
         animalCarnivoro.dormir();
 
-        AnimalOmnívoro animalOmnívoro = new AnimalOmnívoro();
-        animalOmnívoro.comer();
+        AnimalOmnivoro animalOmnivoro = new AnimalOmnivoro();
+        animalOmnivoro.comer();
         animalCarnivoro.dormir();
+        animalCarnivoro.respirar();
     }
 }

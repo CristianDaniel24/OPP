@@ -12,7 +12,8 @@ public class Main {
                 new Persona("Lucas", 26),
                 new Profesor("Charlie", 24, "Naturales"),
                 new Persona("Charlie", 30),
-                new Estudiante("Juan", 17, 11)
+                new Estudiante("Juan", 17, 11),
+                new Estudiante("Martin", 15, 7)
         };
         for (Persona persona : personas){
             persona.detallesPersona();

@@ -1,6 +1,6 @@
 package herencia.abstraccion.ejercicio1.entities;
 
-public class AnimalOmnívoro extends Animal{
+public class AnimalOmnivoro extends Animal{
 
     @Override
     public void comer(){

@@ -3,8 +3,8 @@ package herencia.polimorfismo.ejercicio2.entities;
 public class Computador1 extends Computador{
     private String color;
 
-    public Computador1(String marca,int año, String color, Double coste){
-        super(marca,año,coste);
+    public Computador1(String marca,int fecha, String color, Double coste){
+        super(marca,fecha,coste);
         this.color = color;
     }
     public String getColor(){
@@ -19,7 +19,7 @@ public class Computador1 extends Computador{
     public String detallesComputador(){
         return "Detalles del computador Vivobook son:"+
                 "\nMarca: "+this.marca+
-                "\nAño: "+this.año+
+                "\nAño: "+this.fecha+
                 "\nColor: "+this.color+
                 "\nCoste total: "+calcularValor();
     }
