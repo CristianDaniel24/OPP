@@ -3,7 +3,6 @@ package herencia.abstraccion.ejercicio1;
 import herencia.abstraccion.ejercicio1.entities.AnimalCarnivoro;
 import herencia.abstraccion.ejercicio1.entities.AnimalOmnivoro;
 import herencia.abstraccion.ejercicio1.entities.Planta;
-import herencia.abstraccion.ejercicio1.entities.Servivo;
 
 public class main {
     public static void main(String[] args){

@@ -11,12 +11,13 @@ public CreditCardPayment(Double coste, String cardNumber,String cardHolderName){
 }
 
     public void processPayment(){
-        System.out.println("Procesando Pago...");
+        System.out.println("Procesando Pago de la Tarjeta...");
 }
+
     public void displayPaymentDetails(){
         System.out.println("Los datos del usuario son:"+
-                "\nNombre del titular: "+cardHolderName+
-                "\nNumero de tarjeta: "+cardNumber+
-                "\nDinero: "+monto);
+                "\nNombre del titular: "+this.cardHolderName+
+                "\nNumero de tarjeta: "+this.cardNumber+
+                "\nDinero: "+this.monto);
     }
 }
