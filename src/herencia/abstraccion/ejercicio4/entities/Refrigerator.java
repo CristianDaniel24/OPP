@@ -9,15 +9,14 @@ public class Refrigerator extends Appliance{
         this.capacity = capacity;
     }
     public void turnOn(){
-        System.out.println("Encender");
+        System.out.println("Refrigerador encendido");
     }
     public void turnOff(){
-        System.out.println("Apagar");
+        System.out.println("Refrigerador apagado");
     }
+    @Override
     public void displayDetails(){
-        System.out.println("Los detalles del refrigerador son:"+
-                "\nMarca: "+this.marca+
-                "\nModelo: "+this.modelo+
-                "\nCapacidad: "+this.capacity);
+        super.displayDetails();
+        System.out.println("La Capacidad de el Refrigerador es: "+this.capacity);
     }
 }

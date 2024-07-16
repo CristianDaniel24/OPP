@@ -9,15 +9,15 @@ public class WashingMachine extends Appliance{
         this.loadCapacity = loadCapacity;
     }
     public void turnOn(){
-        System.out.println("Encender");
+        System.out.println("Lavadora encendida");
     }
     public void turnOff(){
-        System.out.println("Apagar");
+        System.out.println("Lavadora apagada");
     }
+    @Override
     public void displayDetails(){
-        System.out.println("Los detalles de la lavadora son:"+
-                "\nMarca: "+this.marca+
-                "\nModelo: "+this.modelo+
-                "\nCapacidad: "+this.loadCapacity);
+        super.displayDetails();
+        System.out.println("La Capacidad de la Lavadora es: "+this.loadCapacity);
+
     }
 }

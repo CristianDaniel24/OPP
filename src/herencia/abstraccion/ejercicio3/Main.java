@@ -18,14 +18,14 @@ public class Main {
         for (Book book : books){
             book.displayDetails();
             book.borrowItem();
-            System.out.println("El pedido de entrega es: "+book.getBorrowingPeriod()+" Años");
+            System.out.println("El periodo de entrega es: "+book.getBorrowingPeriod()+" Años");
             book.returnItem();
             System.out.println(" ");
         }
         for (DVD dvd : dvds){
             dvd.displayDetails();
             dvd.borrowItem();
-            System.out.println("El pedido es: "+dvd.getBorrowingPeriod()+" Años");
+            System.out.println("El periodo es: "+dvd.getBorrowingPeriod()+" Años");
             dvd.returnItem();
             System.out.println(" ");
         }
