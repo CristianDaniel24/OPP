@@ -1,6 +1,6 @@
 package Ejercicios.ejercicio1.entities;
 
-public class Vivienda {
+public class  Vivienda {
 
     protected String nombrePropietario;
     protected int edad;
