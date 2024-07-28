@@ -1,4 +1,4 @@
-package ejercicioArray;
+package dataStructures;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class Array {
         int indice = 3;
 
         if (indice >= 0 && indice < numerosBusqueda.length) {
-            System.out.println("El numero del indice " +indice+" es: "+numerosBusqueda[indice]);
+            System.out.println("El numero del indice " + indice + " es: " + numerosBusqueda[indice]);
         } else {
             System.out.println("El indice buscado esta fuera del array");
         }
@@ -25,11 +25,11 @@ public class Array {
         System.out.println("ORDENACION EN EL ARRAY");
         int[] numerosOrdenacion = {2, 3, 1, 5, 4};
 
-        System.out.println("Array normal: "+Arrays.toString(numerosOrdenacion));
+        System.out.println("Array normal: " + Arrays.toString(numerosOrdenacion));
 
         Arrays.sort(numerosOrdenacion);
-
-        System.out.println("Array ordenado: "+Arrays.toString(numerosOrdenacion));
+        //12345
+        System.out.println("Array ordenado: " + Arrays.toString(numerosOrdenacion));
 
         System.out.println("----------------------------");
 
@@ -41,13 +41,13 @@ public class Array {
         System.out.println("ACTUALIZACION EN EL ARRAY");
         int[] numerosActualizacion = {1, 2, 3, 4, 5};
 
-        System.out.println("Array original: "+Arrays.toString(numerosActualizacion));
+        System.out.println("Array original: " + Arrays.toString(numerosActualizacion));
 
         numerosActualizacion[0] = 6;
         numerosActualizacion[2] = 7;
         numerosActualizacion[4] = 8;
 
-        System.out.println("El Array actualizado es: "+Arrays.toString(numerosActualizacion));
+        System.out.println("El Array actualizado es: " + Arrays.toString(numerosActualizacion));
 
         //ELIMINACION
 

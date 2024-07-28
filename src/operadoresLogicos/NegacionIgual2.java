@@ -1,17 +1,17 @@
-package dataStructures;
+package operadoresLogicos;
 
 import java.util.Scanner;
 
 public class NegacionIgual2 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        char letra = 'x';
+        char letra = 'a';
 
         if (letra != 'a' && letra != 'e' && letra != 'i' && letra != 'o' && letra != 'u') {
-            System.out.println("La letra no es una vocal");
+            System.out.println("The letter is not vocal");
         } else {
-            System.out.println("La letra si es una vocal");
+            System.out.println("The letter is vocal");
         }
     }
 }

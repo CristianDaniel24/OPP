@@ -1,4 +1,4 @@
-package dataStructures;
+package operadoresLogicos;
 
 import java.util.Scanner;
 
@@ -6,23 +6,23 @@ public class Or2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("BIENVENIDO A SU TIENDA DE JUEGOS DE CONFIANZA");
+        System.out.println("WELCOME TO YOUR TRUSTED STORE GAME ");
 
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nLista de productos:");
-            System.out.println("1. Consola xbox con/sin juegos");
-            System.out.println("2. Consola PlayStation con/sin juegos");
+            System.out.println("\nList of products:");
+            System.out.println("1. Console xbox with/without games");
+            System.out.println("2. Console PlayStation with/without games");
             System.out.println("3. Exit");
-            System.out.println("Ingrese una opcion:");
+            System.out.println("Enter an option:");
             int opcion = scanner.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("¿Deseas ordenar una consola xbox con juegos incluidos?true/false");
-                    boolean juegosXboxSi = scanner.nextBoolean();
+                    System.out.println("¿You want order the console xbox with games included?true/false");
+                    boolean gamesXboxYes = scanner.nextBoolean();
                     System.out.println("¿Tienes tarjeta de descuento?");
                     boolean tarjetaXbox = scanner.nextBoolean();
-                    if (juegosXboxSi || tarjetaXbox){
+                    if (gamesXboxYes || tarjetaXbox){
                         System.out.println("Realizando pedido..");
                     }else {
                         System.out.println("Pedido invalido");
@@ -30,10 +30,10 @@ public class Or2 {
                     return;
                 case 2:
                     System.out.println("¿Deseas ordenar una playStation con juegos incluidos?true/false");
-                    boolean juegosPlayStationSi = scanner.nextBoolean();
+                    boolean gamesPlayStationYes = scanner.nextBoolean();
                     System.out.println("¿Tienes tarjeta de descuento?");
-                    boolean tarjetaPlay = scanner.nextBoolean();
-                    if (juegosPlayStationSi || tarjetaPlay){
+                    boolean cardPlay = scanner.nextBoolean();
+                    if (gamesPlayStationYes || cardPlay){
                         System.out.println("Realizando pedido..");
                     }else {
                         System.out.println("Pedido invalido");
