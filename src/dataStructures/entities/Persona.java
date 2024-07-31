@@ -1,14 +1,17 @@
 package dataStructures.entities;
 
 public class Persona {
-    /*
+
     private String nombre;
     private int edad;
 
-    public Persona(String nombre, int edad, ArrayList<Persona> personaArrayList) {
-        super(personaArrayList);
+    public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+    }
+
+    public Persona() {
+
     }
 
     public String getNombre() {
@@ -26,27 +29,4 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-    public int searchArray(ArrayList<Persona> personaArrayList, String nombre) {
-        for (Persona persona : personaArrayList) {
-            if (getNombre().equals(nombre)) {
-                System.out.println("La edad es: " + getEdad());
-            }
-        }
-        return getEdad();
-    }
-
-    public void orderArray() {
-
-    }
-
-    public void addArray() {
-    }
-
-    public void updateArray() {
-    }
-
-    public void deletedArray() {
-    }
-     */
 }
