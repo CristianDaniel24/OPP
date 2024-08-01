@@ -10,6 +10,9 @@ public class Student {
         this.ratings = ratings;
     }
 
+    public Student() {
+    }
+
     public String getNombre() {
         return this.nombre;
     }

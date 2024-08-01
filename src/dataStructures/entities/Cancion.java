@@ -1,12 +1,15 @@
 package dataStructures.entities;
 
-public class Cancion {
+public class Cancion implements Comparable<Cancion> {
     private String nombre;
     private Double duracion;
 
     public Cancion(String nombre, Double duracion) {
         this.nombre = nombre;
         this.duracion = duracion;
+    }
+
+    public Cancion() {
     }
 
     public String getNombre() {
@@ -30,4 +33,7 @@ public class Cancion {
         return nombre;
     }
 
+    public int compareTo(Cancion otraCancion) {
+        return this.getNombre().compareTo(otraCancion.getNombre());
+    }
 }

@@ -24,7 +24,7 @@ public class EjercicioPersonaArrayList {
 
         //search(personas, scanner);
 
-        sort(personas);
+        //sort(personas);
     }
 
     public static void add(ArrayList<Persona> personas, Scanner scanner) {
@@ -42,16 +42,20 @@ public class EjercicioPersonaArrayList {
         System.out.println("\nEnter the person to delete");
         String deletePerson = scanner.nextLine();
         Persona personaEncontrada = new Persona();
+        boolean deletedPerson = false;
         for (Persona persona : personas) {
             if (persona.getNombre().equalsIgnoreCase(deletePerson)) {
                 personaEncontrada = persona;
-                break;
-            } else {
-                System.out.println("\nThe person is invalid");
+                personas.remove(personaEncontrada);
+                deletedPerson = true;
                 break;
             }
         }
-        personas.remove(personaEncontrada);
+        if (deletedPerson) {
+            System.out.println("\nthe person is successfully eliminated");
+        } else {
+            System.out.println("\nThe person is invalid");
+        }
         list(personas);
     }
 

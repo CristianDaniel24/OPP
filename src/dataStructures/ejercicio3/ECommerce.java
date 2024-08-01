@@ -29,10 +29,10 @@ public class ECommerce {
                     expensive(productosLinkedList);
                     break;
                 case 3:
-                    rotate(productosLinkedList);
+                    rotate(productosLinkedList, scanner);
                     break;
                 case 4:
-                    merge(productosLinkedList, productsMerge);
+                    merge(productosLinkedList, productsMerge, scanner);
                     break;
                 case 5:
                     System.out.println("Bye..");
@@ -57,10 +57,7 @@ public class ECommerce {
         productosLinkedList.add(productos);
         System.out.println("The product was added successfully");
         System.out.println("\nThe aggregate product is:");
-        for (Productos productos1 : productosLinkedList) {
-            System.out.println("- Name: " + productos1.getNombre() + "\n- Stock: " + productos1.getStock() +
-                    "\n- Price: " + productos1.getPrecio());
-        }
+        details(productosLinkedList);
     }
 
     public static void expensive(LinkedList<Productos> productosLinkedList) {
@@ -76,9 +73,44 @@ public class ECommerce {
         System.out.println("The product " + nameProductExpensive + " is the most expensive, it costs: " + productExpensive);
     }
 
-    public static void rotate(LinkedList<Productos> productosLinkedList) {
+    public static void rotate(LinkedList<Productos> productosLinkedList, Scanner scanner) {
+        System.out.println("Enter the numbers to rotate:");
+        int rotate = scanner.nextInt();
+        // Obtener la longitud de la lista
+        int longitud = productosLinkedList.size();
+
+        for (int i = 0; i < rotate; i++) {
+            Productos lastElement = productosLinkedList.removeLast();
+            productosLinkedList.addFirst(lastElement);
+        }
+        details(productosLinkedList);
     }
 
-    public static void merge(LinkedList<Productos> productosLinkedList, LinkedList<Productos> productsMerge) {
+    public static void merge(LinkedList<Productos> productosLinkedList, LinkedList<Productos> productsMerge, Scanner scanner) {
+        scanner.nextLine();
+        System.out.println("ARRAY 2");
+        System.out.println("Enter the name:");
+        String name = scanner.nextLine();
+        System.out.println("Enter the stock:");
+        int stock = scanner.nextInt();
+        System.out.println("Enter the price:");
+        Double price = scanner.nextDouble();
+        Productos productos = new Productos(name, stock, price);
+        productsMerge.add(productos);
+
+        LinkedList<Productos> resultMerge = new LinkedList<>(productosLinkedList);
+        resultMerge.addAll(productsMerge);
+        System.out.println("\nThe list merge is:");
+        for (Productos productos1 : resultMerge) {
+            System.out.println("- Name: " + productos1.getNombre() + "\n- Stock: " + productos1.getStock() +
+                    "\n- Price: " + productos1.getPrecio());
+        }
+    }
+
+    public static void details(LinkedList<Productos> productosLinkedList) {
+        for (Productos productos1 : productosLinkedList) {
+            System.out.println("\n- Name: " + productos1.getNombre() + "\n- Stock: " + productos1.getStock() +
+                    "\n- Price: " + productos1.getPrecio());
+        }
     }
 }

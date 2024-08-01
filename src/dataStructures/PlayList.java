@@ -1,24 +1,19 @@
 package dataStructures;
 
+import dataStructures.entities.Cancion;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class PlayList {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        ArrayList<String> playList = new ArrayList<>();
+        ArrayList<Cancion> playList = new ArrayList<>();
 
-        playList.add("song2");
-        playList.add("song1");
-        playList.add("song3");
-        playList.add("song3");
-        System.out.println("Current songs are:");
-        for (String list : playList) {
-            System.out.println(list);
-        }
+        Cancion cancion = new Cancion();
+
         boolean exit = false;
         while (!exit) {
             System.out.println("\nSongs Menu");
@@ -60,74 +55,112 @@ public class PlayList {
         }
     }
 
-    public static void add(ArrayList<String> playList, Scanner scanner) {
+    public static void add(ArrayList<Cancion> playList, Scanner scanner) {
         scanner.nextLine();
-        System.out.println("Enter the song for add");
+        System.out.println("Enter the name song for add:");
         String add = scanner.nextLine();
-        playList.add(add);
+        System.out.println("Enter the duration:");
+        Double duration = scanner.nextDouble();
+        Cancion cancion = new Cancion(add, duration);
+        playList.add(cancion);
+
         System.out.println("The " + add + " was successfully add");
         System.out.println("\nThe remaining song are:");
-        for (String adds : playList) {
-            System.out.println(adds);
+        for (Cancion adds : playList) {
+            System.out.println(adds.getNombre() + " - " + adds.getDuracion());
         }
     }
 
-    public static void delete(ArrayList<String> playList, Scanner scanner) {
+    public static void delete(ArrayList<Cancion> playList, Scanner scanner) {
         scanner.nextLine();
         System.out.println("Enter the song to the remove");
-        String remove = scanner.nextLine();
-        if (playList.contains(remove)) {
-            playList.remove(remove);
-            System.out.println("The " + remove + " was successfully removed");
-            System.out.println("\nThe remaining song are:");
-            for (String delete : playList) {
-                System.out.println(delete);
+        String removeSong = scanner.nextLine();
+        Cancion cancionInstancia = new Cancion();
+        boolean remove = false;
+        for (Cancion cancion : playList) {
+            if (cancion.getNombre().equalsIgnoreCase(removeSong)) {
+                cancionInstancia = cancion;
+                playList.remove(cancionInstancia);
+                remove = true;
+                break;
             }
+        }
+        if (remove) {
+            System.out.println("The " + removeSong + " was successfully removed");
         } else {
             System.out.println("The song is invalid or not exist");
         }
+        System.out.println("\nThe songs are:");
+        for (Cancion cancion : playList) {
+            System.out.println(cancion.getNombre() + " - " + cancion.getDuracion());
+        }
     }
 
-    public static void search(ArrayList<String> playList, Scanner scanner) {
+    public static void search(ArrayList<Cancion> playList, Scanner scanner) {
         scanner.nextLine();
         System.out.println("Enter your search:");
-        String search = scanner.nextLine();
-
-        if (playList.contains(search)) {
-            System.out.println("The " + search + " yes exist in the list");
+        String searchSong = scanner.nextLine();
+        boolean search = false;
+        for (Cancion cancion : playList) {
+            if (cancion.getNombre().equalsIgnoreCase(searchSong)) {
+                search = true;
+                break;
+            }
+        }
+        if (search) {
+            System.out.println("The " + searchSong + " yes exist in the list");
         } else {
-            System.out.println("The " + search + " not exit in the list");
+            System.out.println("The " + searchSong + " not exit in the list");
         }
     }
 
-    public static void order(ArrayList<String> playList) {
-        System.out.println("ORDER");
-        Collections.sort(playList);
-        System.out.println("Upward list");
-        for (String arrayList : playList) {
-            System.out.println(arrayList);
+    public static void order(ArrayList<Cancion> playList) {
+        //UPWARD
+        orderAscending(playList);
+        for (Cancion arrayList : playList) {
+            System.out.println(arrayList.getNombre());
         }
+
         //FALLING
-        playList.sort(Comparator.reverseOrder());
-        System.out.println("\nFalling list");
-        for (String arrayList : playList) {
+        orderDesending(playList);
+        for (Cancion arrayList : playList) {
             System.out.println(arrayList);
         }
     }
 
-    public static void duplicate(ArrayList<String> playList, Scanner scanner) {
+
+    public static void duplicate(ArrayList<Cancion> playList, Scanner scanner) {
         scanner.nextLine();
         System.out.println("Enter the song to the remove duplicate");
-        String duplicate = scanner.nextLine();
-        if (playList.contains(duplicate)) {
-            playList.remove(duplicate);
-            System.out.println("The " + duplicate + " duplicate was successfully removed");
+        String duplicateSong = scanner.nextLine();
+        Cancion cancionInstancia = new Cancion();
+        boolean remove = false;
+        for (Cancion cancion : playList) {
+            if (cancion.getNombre().equalsIgnoreCase(duplicateSong)) {
+                cancionInstancia = cancion;
+                playList.remove(cancionInstancia);
+                remove = true;
+                break;
+            }
+        }
+        if (remove) {
+            System.out.println("The " + duplicateSong + " duplicate was successfully removed");
             System.out.println("\nThe remaining song are:");
-            for (String duplicates : playList) {
-                System.out.println(duplicates);
+            for (Cancion duplicates : playList) {
+                System.out.println(duplicates.getNombre() + " - " + duplicates.getDuracion());
             }
         } else {
             System.out.println("The song duplicate is invalid or not exist");
         }
+    }
+
+    public static void orderAscending(ArrayList<Cancion> playList) {
+        System.out.println("\nOrder ascending");
+        Collections.sort(playList);
+    }
+
+    public static void orderDesending(ArrayList<Cancion> playList) {
+        System.out.println("\nOrder descending");
+        Collections.sort(playList, Collections.reverseOrder());
     }
 }
