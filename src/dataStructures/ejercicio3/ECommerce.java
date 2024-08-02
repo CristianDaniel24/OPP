@@ -98,13 +98,9 @@ public class ECommerce {
         Productos productos = new Productos(name, stock, price);
         productsMerge.add(productos);
 
-        LinkedList<Productos> resultMerge = new LinkedList<>(productosLinkedList);
-        resultMerge.addAll(productsMerge);
+        productosLinkedList.addAll(productsMerge);
         System.out.println("\nThe list merge is:");
-        for (Productos productos1 : resultMerge) {
-            System.out.println("- Name: " + productos1.getNombre() + "\n- Stock: " + productos1.getStock() +
-                    "\n- Price: " + productos1.getPrecio());
-        }
+        details(productosLinkedList);
     }
 
     public static void details(LinkedList<Productos> productosLinkedList) {
