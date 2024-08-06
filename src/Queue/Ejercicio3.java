@@ -10,16 +10,16 @@ public class Ejercicio3 {
 
         Queue<Customer> row = new LinkedList<Customer>();
 
-        System.out.println("WELCOME TO THE WAITING LINE%n");
+        System.out.printf("%nWELCOME TO THE WAITING LINE");
 
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nMenu to row");
-            System.out.printf("1. Add to Customer%n");
-            System.out.printf("2. Serve client%n");
-            System.out.printf("3. Row details%n");
-            System.out.printf("4. Exit%n");
-            System.out.printf("Enter to option:%n");
+            System.out.printf("%nMenu to row");
+            System.out.printf("%n1. Add to Customer");
+            System.out.printf("%n2. Serve client");
+            System.out.printf("%n3. Row details");
+            System.out.printf("%n4. Exit");
+            System.out.printf("%nEnter to option:");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -32,64 +32,49 @@ public class Ejercicio3 {
                     details(row);
                     break;
                 case 4:
-                    System.out.println("Bye..");
+                    System.out.printf("%nBye..");
                     exit = true;
                     break;
                 default:
-                    System.out.println("The option is invalid :(");
+                    System.out.printf("%nThe option is invalid :(");
             }
         }
     }
 
     public static void add(Queue<Customer> row, Scanner scanner) {
-        System.out.println("Enter the number of Customers");
-        int number = scanner.nextInt();
-        for (int i = 0; i < number; i++) {
-            scanner.nextLine();
-            System.out.printf("Enter the name to customer for add the row:%n");
-            String name = scanner.nextLine();
-            System.out.printf("Enter the age to Customer:%n");
-            int age = scanner.nextInt();
-            Customer customer = new Customer(name, age);
-            row.add(customer);
-        }
-        System.out.printf("The Customer to add successfully..%n");
+        scanner.nextLine();
+        System.out.printf("%nEnter the name:");
+        String name = scanner.nextLine();
+        System.out.printf("Enter the order:");
+        String order = scanner.nextLine();
+        Customer customer = new Customer(name, order);
+        row.add(customer);
+        System.out.printf("%nOrder placed successfully, order number: #" + row.size());
         details(row);
     }
 
     public static void serve(Queue<Customer> row, Scanner scanner) {
         if (!row.isEmpty()) {
-            System.out.println("You want to server a client? true/false");
-            boolean attend = scanner.nextBoolean();
-
-            if (attend) {
-                System.out.println("The client is: " + row.peek().getName());
-                System.out.println("You want to attend to it? true/false");
-                boolean attendCustomer = scanner.nextBoolean();
-                if (attendCustomer) {
-                    Customer customerPoll = row.poll();
-                    System.out.println("\nThe client attend is: " + customerPoll.getName());
-                    System.out.println("Remaining services: " + row.size());
-                }
-            }
+            Customer customerPoll = row.poll();
+            System.out.printf("%nThe request for: " + customerPoll.getName() + " and it order is: " + customerPoll.getOrder());
+            System.out.printf("%nRemaining services: " + row.size());
+            System.out.printf("%n");
         } else {
-            System.out.println("The row is empty =(");
+            System.out.printf("The row is empty =(");
+            System.out.printf("%n");
         }
     }
 
     public static void details(Queue<Customer> row) {
-        boolean isEmpty = false;
+        System.out.printf("%n");
         if (!row.isEmpty()) {
-            System.out.printf("The row is:%n");
+            System.out.printf("%nThe row is:");
             for (Customer details : row) {
-                System.out.println("-Name: " + details.getName() + "\n-Age: " + details.getAge());
+                System.out.printf("%n-Name: " + details.getName() + "%n-Order: " + details.getOrder());
             }
-            isEmpty = true;
         } else {
-            System.out.println("The row is empty =(");
+            System.out.printf("%nThe row is empty =(");
         }
-        if (isEmpty) {
-            System.out.println("Remaining services: " + row.size());
-        }
+        System.out.printf("%n");
     }
 }

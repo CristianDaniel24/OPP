@@ -2,11 +2,11 @@ package Queue;
 
 public class Customer {
     private String name;
-    private int age;
+    private String order;
 
-    public Customer(String name, int age) {
+    public Customer(String name, String order) {
         this.name = name;
-        this.age = age;
+        this.order = order;
     }
 
     public String getName() {
@@ -17,11 +17,11 @@ public class Customer {
         this.name = name;
     }
 
-    public int getAge() {
-        return this.age;
+    public String getOrder() {
+        return this.order;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setOrder(String order) {
+        this.order = order;
     }
 }
