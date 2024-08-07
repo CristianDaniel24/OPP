@@ -16,7 +16,7 @@ public class EjercicioHasMap {
             System.out.printf("%n1. Add to Person:");
             System.out.printf("%n2. Deleted to Person:");
             System.out.printf("%n3. Search Person:");
-            System.out.printf("%n4. Details to Person:");
+            System.out.printf("%n4. Details to Persons:");
             System.out.printf("%n5. Exit:");
             System.out.printf("%nEnter the option:");
             int option = scanner.nextInt();
@@ -46,9 +46,9 @@ public class EjercicioHasMap {
 
     public static void add(HashMap<String, Integer> edad, Scanner scanner) {
         scanner.nextLine();
-        System.out.printf("%nEnter the name to Person:");
+        System.out.printf("%nEnter the name of the Person:");
         String name = scanner.nextLine();
-        System.out.printf("Enter to age:");
+        System.out.printf("Enter the age:");
         int age = scanner.nextInt();
 
         // Se Agregan los nombres y las edades al HashMap

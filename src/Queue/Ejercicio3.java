@@ -11,7 +11,7 @@ public class Ejercicio3 {
         Queue<Customer> row = new LinkedList<Customer>();
 
         System.out.printf("%nWELCOME TO THE WAITING LINE");
-
+        int suma = 0;
         boolean exit = false;
         while (!exit) {
             System.out.printf("%nMenu to row");
@@ -23,10 +23,11 @@ public class Ejercicio3 {
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    add(row, scanner);
+                    suma++;
+                    add(row, scanner, suma);
                     break;
                 case 2:
-                    serve(row, scanner);
+                    serve(row);
                     break;
                 case 3:
                     details(row);
@@ -41,7 +42,7 @@ public class Ejercicio3 {
         }
     }
 
-    public static void add(Queue<Customer> row, Scanner scanner) {
+    public static void add(Queue<Customer> row, Scanner scanner, int suma) {
         scanner.nextLine();
         System.out.printf("%nEnter the name:");
         String name = scanner.nextLine();
@@ -49,19 +50,18 @@ public class Ejercicio3 {
         String order = scanner.nextLine();
         Customer customer = new Customer(name, order);
         row.add(customer);
-        System.out.printf("%nOrder placed successfully, order number: #" + row.size());
+        System.out.printf("%nOrder placed successfully, order number: #" + suma);
         details(row);
     }
 
-    public static void serve(Queue<Customer> row, Scanner scanner) {
+    public static void serve(Queue<Customer> row) {
         if (!row.isEmpty()) {
             Customer customerPoll = row.poll();
             System.out.printf("%nThe request for: " + customerPoll.getName() + " and it order is: " + customerPoll.getOrder());
             System.out.printf("%nRemaining services: " + row.size());
             System.out.printf("%n");
         } else {
-            System.out.printf("The row is empty =(");
-            System.out.printf("%n");
+            System.out.printf("The row is empty =(%n");
         }
     }
 
