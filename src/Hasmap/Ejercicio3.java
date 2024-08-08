@@ -65,53 +65,38 @@ public class Ejercicio3 {
             scanner.nextLine();
             System.out.println("Enter the name of Student for delete:");
             String nameDelete = scanner.nextLine();
-            boolean deleted = false;
-            for (Estudiante estudiante : students.values()) {
-                if (estudiante.getName().equalsIgnoreCase(nameDelete)) {
-                    deleted = true;
+            int id = 0;
+            for (Map.Entry<Integer, Estudiante> estudianteEntry : students.entrySet()) {
+                if (estudianteEntry.getValue().getName().equalsIgnoreCase(nameDelete)) {
+                    id = estudianteEntry.getKey();
                 }
             }
-            if (deleted) {
-                for (Map.Entry<Integer, Estudiante> estudianteEntry : students.entrySet()) {
-                    Integer key = estudianteEntry.getKey();       // Obtener la clave
-                    Estudiante value = estudianteEntry.getValue();    // Obtener el valor
-                    students.remove(key);
-                    details(students);
-                    break;
-                }
+            if (id != 0) {
+                students.remove(id);
+                details(students);
             } else
-                System.out.println("The Student is invalid or not exists");
+                System.out.println("Student is invalid or doesn't exist");
         } else {
-            System.out.println("Not exists Students =(");
+            System.out.println("Student doesn't exist =(");
         }
     }
 
     public static void update(HashMap<Integer, Estudiante> students, Scanner scanner) {
         if (!students.isEmpty()) {
             scanner.nextLine();
-            boolean find = false;
-            System.out.println("Enter the name of Student to Update:");
-            String nameSearchUpdate = scanner.nextLine();
-            for (Estudiante estudiante : students.values()) {
-                if (estudiante.getName().equalsIgnoreCase(nameSearchUpdate)) {
-                    find = true;
-                }
-            }
-            if (find) {
-                System.out.println("Enter the Id of the Student for Update:");
-                int idUpdate = scanner.nextInt();
+            System.out.println("Enter the Id of the Student for Update:");
+            int idUpdate = scanner.nextInt();
+            if (students.containsKey(idUpdate)) {
                 scanner.nextLine();
-                if (students.containsKey(idUpdate)) {
-                    System.out.println("Enter the new Name of the Student:");
-                    String nameUpdate = scanner.nextLine();
-                    System.out.println("Enter the new Grade of the Student:");
-                    String gradeUpdate = scanner.nextLine();
-                    Estudiante estudiante1 = new Estudiante(nameUpdate, gradeUpdate);
-                    students.put(idUpdate, estudiante1);
-                    details(students);
-                } else
-                    System.out.println("The Id is invalid or not exists");
-            }
+                System.out.println("Enter the new Name of the Student:");
+                String nameUpdate = scanner.nextLine();
+                System.out.println("Enter the new Grade of the Student:");
+                String gradeUpdate = scanner.nextLine();
+                Estudiante estudiante1 = new Estudiante(nameUpdate, gradeUpdate);
+                students.put(idUpdate, estudiante1);
+                details(students);
+            } else
+                System.out.println("The Id is invalid or not exists");
         } else {
             System.out.println("Not exists Students =(");
         }
@@ -120,28 +105,24 @@ public class Ejercicio3 {
     public static void search(HashMap<Integer, Estudiante> students, Scanner scanner) {
         if (!students.isEmpty()) {
             scanner.nextLine();
-            System.out.println("Enter the Student to search:");
-            String searchStudent = scanner.nextLine();
-            boolean search = false;
-            for (Estudiante estudiante : students.values()) {
-                if (estudiante.getName().equalsIgnoreCase(searchStudent)) {
-                    search = true;
-                }
-            }
-            if (search) {
-                System.out.println("The Student: " + searchStudent + " yes exists");
+            System.out.println("Enter the Id of Student to search:");
+            int idSearch = scanner.nextInt();
+            Estudiante estudiante = students.get(idSearch);
+            if (estudiante != null) {
+                System.out.println("The Student: " + estudiante.getName() + " yes exists" + "\nGrade: " + estudiante.getGrade());
             } else {
-                System.out.println("The Student " + searchStudent + " not exists or invalid");
+                System.out.println("The student doesn't exist");
             }
-        } else
+        } else {
             System.out.println("Not exists Students =(");
+        }
     }
 
     public static void details(HashMap<Integer, Estudiante> students) {
         if (!students.isEmpty()) {
             System.out.printf("%nThe Students are:");
             for (Estudiante details : students.values()) {
-                System.out.printf("%n-Name: " + details.getName() + "%n-Grade: " + details.getGrade());
+                System.out.printf("%n-Name: %s %n-Grade: %s", details.getName(), details.getGrade());
             }
         } else {
             System.out.printf("%nNot exists Students =(");
