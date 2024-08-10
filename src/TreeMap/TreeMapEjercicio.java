@@ -57,7 +57,7 @@ public class TreeMapEjercicio {
     public static void delete(TreeMap<Integer, Products> products, Scanner scanner) {
         if (!products.isEmpty()) {
             scanner.nextLine();
-            System.out.println("Enter the name of Product for delete:");
+            System.out.println("Enter the name of the Product to delete:");
             String nameDelete = scanner.nextLine();
             int id = 0;
             for (Map.Entry<Integer, Products> productsEntry : products.entrySet()) {
@@ -69,7 +69,7 @@ public class TreeMapEjercicio {
                 products.remove(id);
                 System.out.println("The Products are:");
                 for (Products details : products.values()) {
-                    System.out.println("-Name: " + details.getName() + "\n-Grade: " + details.getPrice());
+                    System.out.printf("-Name: %s %n-Price: %s %n", details.getName(), details.getPrice());
                 }
             } else
                 System.out.println("Product is invalid or doesn't exist");
@@ -81,10 +81,10 @@ public class TreeMapEjercicio {
     public static void recover(TreeMap<Integer, Products> products, int id, Scanner scanner) {
         if (!products.isEmpty()) {
             scanner.nextLine();
-            System.out.println("Enter the Id for recover the price of the product:");
+            System.out.println("Enter the Id to recover the price of the product:");
             int idRecover = scanner.nextInt();
             if (products.containsKey(idRecover)) {
-                System.out.println("The recovered product is " + products.get(idRecover).getName() + " and its price is: " + products.get(idRecover).getPrice());
+                System.out.printf("The recovered product is %s and its price is: %s%n", products.get(idRecover).getName(), products.get(idRecover).getPrice());
             } else {
                 System.out.println("The product id doesn't exist or invalid");
             }
@@ -97,8 +97,8 @@ public class TreeMapEjercicio {
         if (!products.isEmpty()) {
             // Extraer los nombres de los productos
             List<String> nameProduct = new ArrayList<>();
-            for (Map.Entry<Integer, Products> entry : products.entrySet()) {
-                nameProduct.add(entry.getValue().getName());
+            for (Products product : products.values()) {
+                nameProduct.add(product.getName());
             }
 
             // Ordenar los nombres alfabéticamente
@@ -110,7 +110,7 @@ public class TreeMapEjercicio {
                 System.out.println(name);
             }
         } else {
-            System.out.println("\nNot exists Products =(");
+            System.out.println("\nThe list of products is empty =(");
         }
     }
 }
