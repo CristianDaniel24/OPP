@@ -7,15 +7,14 @@ public class JavaArraylist {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        ArrayList<String[]> number = new ArrayList<>();
         int size = scanner.nextInt();
-
+        ArrayList<String[]> number = new ArrayList<>();
         scanner.nextLine();
         for (int i = 0; i < size; i++) {
             String numbers = scanner.nextLine();
-            number.add(numbers.split(" "));
+            String[] numbersSplit = numbers.split("");
+            number.add(numbersSplit);
         }
-
         int size2 = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < size2; i++) {
@@ -29,6 +28,8 @@ public class JavaArraylist {
             } else {
                 System.out.println("ERROR!");
             }
+
+
         }
     }
 }
