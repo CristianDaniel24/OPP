@@ -8,7 +8,7 @@ public class Ejercicio1 {
 
         String name = scanner.nextLine();
         String regex = "^[A-Z][a-z]+ [A-Z][a-z]+ [A-Z][a-z]+ [A-Z][a-z]+$";
-
+    
         if (name.matches(regex)) {
             System.out.println("The name: " + name + " is valid");
         } else {
