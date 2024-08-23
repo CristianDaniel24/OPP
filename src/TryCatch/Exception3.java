@@ -10,8 +10,7 @@ public class Exception3 {
 
         try {
             System.out.println("Enter the number:");
-            String input = reader.readLine();
-            int number = Integer.parseInt(input);
+            int number = Integer.parseInt(reader.readLine());
             System.out.println("\nThe number " + number + " has been converted successfully");
         } catch (NumberFormatException e) {
             System.out.println("\nInvalid number format. Please enter a valid integer.");
