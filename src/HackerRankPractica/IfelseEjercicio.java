@@ -8,10 +8,10 @@ public class IfelseEjercicio {
 
         int number = scanner.nextInt();
         if (number % 2 == 0) {
-            if (number > 6 && number < 20) {
+            if (number >= 6 && number <= 20) {
                 System.out.println("weird");
             } else {
-                System.out.println("Not weird");
+                System.out.println("not weird");
             }
         } else {
             System.out.println("weird");

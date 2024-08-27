@@ -18,8 +18,8 @@ public class JavaHashset {
         HashSet<String> pares = new HashSet<>();
 
         for (int i = 0; i < t; i++) {
-            String paresString = pair_left[i] + pair_right[i];
-            pares.add(paresString);
+            String paresFinal = pair_left[i] + pair_right[i];
+            pares.add(paresFinal);
             System.out.println(pares.size());
         }
     }

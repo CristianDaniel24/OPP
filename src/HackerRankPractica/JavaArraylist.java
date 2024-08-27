@@ -12,9 +12,9 @@ public class JavaArraylist {
         scanner.nextLine();
         for (int i = 0; i < size; i++) {
             String numbers = scanner.nextLine();
-            String[] numbersSplit = numbers.split("");
-            number.add(numbersSplit);
+            number.add(numbers.split(" "));
         }
+
         int size2 = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < size2; i++) {
@@ -22,14 +22,13 @@ public class JavaArraylist {
             String[] index = queries.split(" ");
             int key = Integer.parseInt(index[0]) - 1;
             int values = Integer.parseInt(index[1]);
-
             if (key < number.size() && values < number.get(key).length) {
                 System.out.println(number.get(key)[values]);
             } else {
-                System.out.println("ERROR!");
+                System.out.println("!ERROR");
             }
-
-
         }
+
+
     }
 }

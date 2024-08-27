@@ -12,12 +12,13 @@ public class SimpleArraySum {
         ArrayList<Integer> numbers = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            int num = scanner.nextInt();
-            numbers.add(num);
+            int number = scanner.nextInt();
+            numbers.add(number);
         }
         int sum = 0;
-        for (Integer numer : numbers) {
-            sum += numer;
+
+        for (Integer result : numbers) {
+            sum += result;
         }
         System.out.println(sum);
     }
