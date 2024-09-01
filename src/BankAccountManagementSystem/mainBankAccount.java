@@ -1,9 +1,8 @@
 package BankAccountManagementSystem;
 
-
 import java.util.Scanner;
 
-public class mainBankAccount {
+public class MainBankAccount {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -24,13 +23,16 @@ public class mainBankAccount {
 
                 depositInitial = Double.parseDouble(input);
                 montInitial(depositInitial);
-                bankAccount = new BankAccount(numberAccount, name, depositInitial);
+
+                bankAccount.setAccountNumber(numberAccount);
+                bankAccount.setAccountHolderName(name);
+                bankAccount.deposit(depositInitial);
                 bankAccount.checkBalance();
+                depositTrue = true;
             } catch (NumberFormatException e) {
                 System.out.println("Enter the number Please!!");
             } catch (LowInitialDepositException e) {
                 System.out.println(e.getMessage());
-                depositTrue = true;
             }
         }
 
@@ -45,32 +47,10 @@ public class mainBankAccount {
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    try {
-                        double amount;
-                        scanner.nextLine();
-                        System.out.println("\nEnter amount to deposit:");
-                        String input = scanner.nextLine();
-                        amount = Double.parseDouble(input);
-                        bankAccount.deposit(amount);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Enter the number for deposit, Please!!");
-                    }
+                    deposit(scanner, bankAccount);
                     break;
                 case 2:
-                    try {
-                        double amoutwithdraw;
-                        scanner.nextLine();
-                        System.out.println("\nEnter amount to withdraw:");
-                        String input = scanner.nextLine();
-                        amoutwithdraw = Double.parseDouble(input);
-                        try {
-                            bankAccount.withdraw(amoutwithdraw);
-                        } catch (InsufficientFundsException e) {
-                            System.out.println("Error when withdrawing money: " + e.getMessage());
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Enter the number for withdraw, Please!!");
-                    }
+                    withdraw(scanner, bankAccount);
                     break;
                 case 3:
                     System.out.println("Current balance: " + bankAccount.checkBalance());
@@ -85,12 +65,40 @@ public class mainBankAccount {
         }
     }
 
+    private static void withdraw(Scanner scanner, BankAccount bankAccount) {
+        try {
+            double amoutwithdraw;
+            scanner.nextLine();
+            System.out.println("\nEnter amount to withdraw:");
+            String input = scanner.nextLine();
+            amoutwithdraw = Double.parseDouble(input);
+            try {
+                bankAccount.withdraw(amoutwithdraw);
+            } catch (InsufficientFundsException e) {
+                System.out.println("Error when withdrawing money: " + e.getMessage());
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Enter the number for withdraw, Please!!");
+        }
+    }
+
+    private static void deposit(Scanner scanner, BankAccount bankAccount) {
+        try {
+            double amount;
+            scanner.nextLine();
+            System.out.println("\nEnter amount to deposit:");
+            String input = scanner.nextLine();
+            amount = Double.parseDouble(input);
+            bankAccount.deposit(amount);
+        } catch (NumberFormatException e) {
+            System.out.println("Enter the number for deposit, Please!!");
+        }
+    }
+
     //EXCEPTIONS
     public static void montInitial(Double balance) throws LowInitialDepositException {
-        if (balance >= 100) {
-            throw new LowInitialDepositException("Account created successfully!");
-        } else {
-            System.out.println("Error: Initial deposit must be at least $100.");
+        if (balance <= 100) {
+            throw new LowInitialDepositException();
         }
     }
 }

@@ -2,7 +2,9 @@ package BankAccountManagementSystem;
 
 public class LowInitialDepositException extends Exception {
 
-    public LowInitialDepositException(String mensaje) {
+    private static final String mensaje = "Error: Initial deposit must be at least $100.";
+
+    public LowInitialDepositException() {
         super(mensaje);
     }
 }

@@ -1,6 +1,6 @@
 package BankAccountManagementSystem;
 
-public class BankAccount extends mainBankAccount {
+public class BankAccount {
     private String accountNumber;
     private String accountHolderName;
     private double balance;
@@ -36,10 +36,6 @@ public class BankAccount extends mainBankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public void BankAccount(String accountNumber, String accountHolderName, double initialDeposit) {
-
     }
 
     public void deposit(double amount) {

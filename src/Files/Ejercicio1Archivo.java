@@ -14,7 +14,7 @@ public class Ejercicio1Archivo {
             String linea;
             while ((linea = bufferedReader.readLine()) != null) {
                 // Modificar la línea aquí (por ejemplo, agregar un texto al final)
-                linea = linea + "Linea Modificada";
+                linea = linea + System.lineSeparator() + "Linea Modificada";
                 textoFinal.add(linea);
             }
         } catch (IOException e) {
