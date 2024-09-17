@@ -2,6 +2,7 @@ package Ternarios;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
+
         double precio = 100;
         boolean descuento = true;
 
