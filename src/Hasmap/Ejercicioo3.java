@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Ejercicio3 {
+public class Ejercicioo3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
