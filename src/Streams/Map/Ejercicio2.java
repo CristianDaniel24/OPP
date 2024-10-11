@@ -9,7 +9,7 @@ public class Ejercicio2 {
         List<String> names = Arrays.asList("Lucas", "Daniel", "Carlos");
 
         List<Integer> longNames = names.stream()
-                .map(String::length)
+                .map(String::length)//Se referencian las palabras y se saca la longitud de ellas
                 .collect(Collectors.toList());
         System.out.println(longNames);
     }

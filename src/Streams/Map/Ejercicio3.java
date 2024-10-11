@@ -9,7 +9,7 @@ public class Ejercicio3 {
         List<Double> prices = Arrays.asList(20.0, 19.2, 3.5);
 
         List<String> priceFormater = prices.stream()
-                .map(price -> "$" + String.format("%.2f", price))
+                .map(price -> String.format("$%.2f", price))
                 .collect(Collectors.toList());
 
         System.out.println(priceFormater);

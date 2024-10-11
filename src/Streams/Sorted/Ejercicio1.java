@@ -2,7 +2,6 @@ package Streams.Sorted;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
@@ -10,7 +9,7 @@ public class Ejercicio1 {
 
         List<Integer> numbersOrder = numbers.stream()
                 .sorted() //Orden ascendente
-                .collect(Collectors.toList());
+                .toList();
         System.out.println(numbersOrder);
     }
 }
