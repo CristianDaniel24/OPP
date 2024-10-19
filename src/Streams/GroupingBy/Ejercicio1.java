@@ -15,7 +15,6 @@ public class Ejercicio1 {
                 new Product("Blender", "Appliances", 100.0)
         );
 
-
         Map<String, List<Product>> productsByCategory = products.stream()
                 .collect(Collectors.groupingBy(Product::getCategory));
 
