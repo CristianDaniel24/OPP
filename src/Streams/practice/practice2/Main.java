@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -20,19 +19,17 @@ public class Main {
                 .toList();
 
         Map<String, Double> productsGroup = products.stream()
-                .collect(Collectors.groupingBy(Product::getName, Collectors.summingDouble(Product::getQuantity)));
+                .collect(Collectors.groupingBy(Product::getName, Collectors.summingDouble(product -> product.getUnitPrice() * product.getQuantity())));
 
         productsGroup.forEach((name, total) -> {
-            System.out.printf("\nProduct: \nName: %s\nTotal: $%f\n", name, total);
+            System.out.printf("\nProduct: \nName: %s\nTotal: $%,.2f\n", name, total);
         });
 
-        Optional highest = productsGroup.values().stream()
-                .reduce((p1, p2) -> p1 > p2 ? p1 : p2);
+        //Optional highest = productsGroup.values().stream()
+        //      .reduce((p1, p2) -> p1 > p2 ? p1 : p2);
 
-        if (highest.isPresent()) {
-            System.out.println("\nThe number highest is: " + highest.get());
-        } else {
-            System.out.println("\nError, values were not found =(");
-        }
+        var product = productsGroup.entrySet().stream().max(Map.Entry.comparingByValue()).orElseThrow();
+
+        System.out.println("\nThe product is: " + product.getKey());
     }
 }
