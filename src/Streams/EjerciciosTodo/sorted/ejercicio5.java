@@ -12,6 +12,7 @@ public class ejercicio5 {
                 new Person("Ana", 30),
                 new Person("Pedro", 22),
                 new Person("Ana", 22),
+                new Person("Juan", 25),
                 new Person("Marta", 25)
         );
 
@@ -19,6 +20,7 @@ public class ejercicio5 {
                 .sorted(Comparator.comparingInt((Person p) -> p.age)
                         .thenComparing(p -> p.name))
                 .toList();
+
         System.out.println("\nPeople sorted by age and name: " + personList1);
     }
 
