@@ -9,7 +9,7 @@ public class Ejercicio1 {
         ExecutorService executor = Executors.newCachedThreadPool();
 
         //Enviar 3 tareas al Thread Pool
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 10; i++) {
             //Se usa final para asegurarse de que taskId no cambie durante la ejecución de la tarea
             final int taskId = i; //Identificador de la tarea
             executor.submit(() -> {

@@ -24,6 +24,7 @@ public class Ejercicio1 {
             });
         }
         // Cerrar el Thread Pool
+        System.out.println(Thread.currentThread().getName());
         executor.shutdown();
     }
 }
