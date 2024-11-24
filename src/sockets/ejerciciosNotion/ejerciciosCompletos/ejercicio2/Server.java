@@ -1,4 +1,4 @@
-package sockets.ejerciciosNotion.ejercicio1;
+package sockets.ejerciciosNotion.ejerciciosCompletos.ejercicio2;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -6,12 +6,11 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(9090)) {
+        try (ServerSocket serverSocket = new ServerSocket(7070)) {
             while (serverSocket.isBound()) {
                 Socket client = serverSocket.accept();
-
-                ThreadSocket threadSocket = new ThreadSocket(client);
-                Thread thread = new Thread(threadSocket);
+                ThreadService threadService = new ThreadService(client);
+                Thread thread = new Thread(threadService);
                 thread.start();
             }
         } catch (IOException e) {

@@ -1,4 +1,4 @@
-package thread.ejerciciosCompletos.ejercicioNotion;
+package thread.ejerciciosCompletos.ejercicio4;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Main {
                 System.out.println("Enter the option:");
                 int option = Integer.parseInt(reader.readLine());
                 if (option == 1) {
-                    List<String> files = List.of("Numbers1.txt", "Numbers2.txt", "Numbers3.txt", "Numbers4.txt", "Numbers5.txt");
+                    List<String> files = List.of("Student1.txt", "Student2.txt", "Student3.txt");
                     List<ThreadService> threadService = files.stream().map(file -> new ThreadService(file)).toList();
 
                     ExecutorService executor = Executors.newFixedThreadPool(files.size());
@@ -30,21 +30,14 @@ public class Main {
                         executor.shutdown();
                         boolean termination = executor.awaitTermination(Long.MAX_VALUE, TimeUnit.MINUTES);
 
-                        System.out.println("PART 1:");
-                        threadService.forEach(thread -> System.out.printf("The line: %d of the file: %s has the sum more big of: %d%n"
-                                , thread.getSumCuadrados().getKey(), thread.getNameFile(), thread.getSumCuadrados().getValue()));
-                        System.out.println("\nPART 2:");
-                        threadService.forEach(thread -> System.out.printf("The sum total of the file %s is: %d%n", thread.getNameFile(), thread.getSumTotalCuadrados()));
-
-                        Long total = threadService.stream()
-                                .mapToLong(ThreadService::getSumTotalCuadrados)
-                                .sum();
-                        System.out.printf("%nThe sum total of all Threads is: %d%n", total);
-
+                        System.out.println("\nThe average of the students are:");
+                        threadService.forEach(thread -> thread.getStudent().forEach(student -> {
+                            System.out.printf("Name: %s Grade: %s Average: %.2f%n", student.getName(), student.getGrado(), student.getPromedio());
+                        }));
                         if (!termination) {
                             executor.shutdown();
                         }
-                    } catch (Exception e) {
+                    } catch (InterruptedException e) {
                         executor.shutdownNow();
                         throw new RuntimeException(e);
                     }
@@ -55,7 +48,7 @@ public class Main {
                     System.out.println("The option is invalid");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Enter the number, please");
+                System.out.println("Enter the number please");
             }
         }
     }
