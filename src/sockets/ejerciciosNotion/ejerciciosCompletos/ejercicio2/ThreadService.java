@@ -95,25 +95,6 @@ public class ThreadService extends Thread {
                     } else {
                         System.out.println("[INFO] - Index invalid");
                     }
-
-                    /*
-                    String inputClient = in.readUTF();
-
-                    Optional<Book> booksEditOptional = books.stream()
-                            .filter(book -> book.getTitle().equals(inputClient))
-                            .findFirst();
-
-                    if (booksEditOptional.isEmpty()) {
-                        //out.writeUTF("Not found");
-                        System.out.println("Not found");
-                        out.writeUTF("not");
-                    } else {
-                        Book book = booksEditOptional.get();
-                        outObject.writeObject(book);
-                        System.out.println("Si se encontro");
-                        out.writeUTF("yes");
-                    }
-                     */
                 } else if (operation.equalsIgnoreCase("searchBook")) {
                     System.out.println("[INFO] - Searching book..");
                     String inputClient = in.readUTF();
@@ -124,7 +105,6 @@ public class ThreadService extends Thread {
                             .collect(Collectors.toList()));
                     ObjectOutputStream outObject = new ObjectOutputStream(client.getOutputStream());
 
-
                     try {
                         List<Book> booksList = optionalBook.get();
                         System.out.println("[INFO] - Books list found: " + booksList);
@@ -134,44 +114,7 @@ public class ThreadService extends Thread {
                         System.out.println("Not found");
                         throw new RuntimeException(e);
                     }
-/*
-                    optionalBook.ifPresent(list -> {
-                        list.forEach(book -> {
-                            try {
-                                out.writeUTF(book.toString() +);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                    });
 
-                    optionalBook.ifPresentOrElse(
-                            list -> {
-                                list.stream()
-                                        .map(book -> book.toString())
-                                        .reduce((a, b) -> a.concat(System.lineSeparator()).concat(b)).ifPresentOrElse(line -> {
-                                            try {
-                                                out.writeUTF(line);
-                                            } catch (IOException e) {
-                                                throw new RuntimeException(e);
-                                            }
-                                        }, () -> {
-                                            try {
-                                                out.writeUTF("Not found");
-                                            } catch (IOException e) {
-                                                throw new RuntimeException(e);
-                                            }
-                                        });
-                            },
-                            () -> {
-                                try {
-                                    out.writeUTF("Not found");
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                    );
- */
                 } else if (operation.equalsIgnoreCase("listBooks")) {
                     System.out.println("[INFO] - Print books");
                     ObjectOutputStream outObject = new ObjectOutputStream(client.getOutputStream());

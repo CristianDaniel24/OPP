@@ -1,9 +1,8 @@
 package parte1;
 
-import java.util.Scanner;
-
-public class MainCuentaBancaria{
-    public static void main(String []args){
+public class MainCuentaBancaria {
+    public static void main(String[] args) {
+        /*
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre del titular");
         String titular = scanner.nextLine();
@@ -22,5 +21,7 @@ public class MainCuentaBancaria{
 
         cuentas.retirarDinero(retiro);
         cuentas.imprimir();
+
+         */
     }
 }

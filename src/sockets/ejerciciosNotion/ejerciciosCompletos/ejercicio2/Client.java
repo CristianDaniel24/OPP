@@ -5,6 +5,8 @@ import java.net.Socket;
 import java.util.List;
 
 public class Client {
+    //Se usa en contextos especiales
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try (Socket socket = new Socket("127.0.0.1", 7070)) {
@@ -40,7 +42,6 @@ public class Client {
                         out.writeUTF("editBook");
                         ObjectInputStream inObj = new ObjectInputStream(socket.getInputStream());
                         ObjectOutputStream outObj = new ObjectOutputStream(socket.getOutputStream());
-                        //ObjectOutputStream outObject = new ObjectOutputStream(socket.getOutputStream());
                         //Se recibe la lista del servidor con los libros
                         List<Book> listBooks = (List<Book>) inObj.readObject();
 
@@ -53,8 +54,6 @@ public class Client {
                         System.out.println("Enter the index of book for edit:");
                         int indexBook = Integer.parseInt(reader.readLine());
                         //Se hace la condicion por si ingresa un indice invalido
-                        //Optional.ofNullable(listBooks.get(indexBook)).ifPresentOrElse()
-
                         if (listBooks.get(indexBook) != null) {
                             out.writeUTF("Yes");
                             //Si ingresa bien entonces se le pregunta los nuevos datos del libro
@@ -79,21 +78,6 @@ public class Client {
                             out.writeUTF("Not");
                             System.out.println("The index is invalid");
                         }
-                        /*
-                        if (book != null){
-                            System.out.println("Enter the new title:");
-                            String newTitle = reader.readLine();
-                            System.out.println("Enter the new autor:");
-                            String newAutor = reader.readLine();
-                            System.out.println("Enter the new stock:");
-                            int newStock = Integer.parseInt(reader.readLine());
-                        }else {
-                            System.out.println("Not found");
-                        }
-                         */
-                        //String yes = in.readUTF();
-                        //if (yes.equals("yes")) {
-
                     } else if (option == 3) {
                         out.writeUTF("searchBook");
                         System.out.println("Enter the title of book to search:");
@@ -111,6 +95,7 @@ public class Client {
                     } else if (option == 4) {
                         out.writeUTF("listBooks");
                         ObjectInputStream inObject = new ObjectInputStream(socket.getInputStream());
+
                         List<Book> books = (List<Book>) inObject.readObject();
                         System.out.println("\nThe books are:");
                         for (int i = 0; i < books.size(); i++) {

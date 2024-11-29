@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainGet {
-        public static void main(String[] args) {
-            Get persona = new Get("Juan");
-            System.out.println(persona.getNombre()); // Imprime "Juan"
-        }
+    public static void main(String[] args) {
+        List<Integer> numeros = new ArrayList<>();
+
+        System.out.println("");
     }
+}
